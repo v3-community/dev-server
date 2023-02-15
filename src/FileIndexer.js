@@ -1,6 +1,6 @@
-import Fs				from 'fs/promises'
-import Path			from 'path'
-import cbor 		from 'cbor'
+import Fs		from 'fs/promises'
+import Path		from 'path'
+import cbor 	from 'cbor'
 import { URL }  from 'url'
 
 const basePath = Path.join(new URL('.', import.meta.url).pathname, '../')
