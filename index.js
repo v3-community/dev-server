@@ -19,7 +19,7 @@ app.register(FastifySSEPlugin)
 app.register(serve, { root: resolve('public'), prefix: '/' })
 app.register(WatcherPlugin, { emitter })
 
-app.listen({ port: process.env.PORT ?? 8082 }, (err, host) => {
+app.listen({ port: process.env.PORT ?? 8080 }, (err, host) => {
     if(err) {
         error('cannot listen()', err)
         process.exit(1)
