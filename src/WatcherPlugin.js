@@ -1,6 +1,9 @@
 import { watch } from 'chokidar'
 import { on }    from 'events'
-import { log }   from './Logger.js';
+import { indexFiles } from './FileIndexer.js'
+import { log }   from './Logger.js'
+
+let viewDir = 'public/'
 
 export default async function(app, { emitter }) {
 	app.get('/42-dev', (req, res) => {
@@ -21,9 +24,14 @@ export default async function(app, { emitter }) {
 	    emitter.emit('event', { name: 'change', data: '/' + path.replace('public/', '') })
 	}
 
-	watch('public/', { persistent: true, ignoreInitial: true })
-	  .on('add', handleChange)
+	const handleIndexChange = path => {
+		indexFiles(viewDir)
+		handleChange(path)
+	}
+
+	watch(viewDir, { persistent: true, ignoreInitial: true })
+	  .on('add', handleIndexChange)
 	  .on('change', handleChange)
-	  .on('unlink', handleChange)
+	  .on('unlink', handleIndexChange)
 	  .on('ready', () => log('waiting for events on \x1b[1;30mpublic/\x1b[0m'))
 }
