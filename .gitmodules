@@ -1,4 +1,0 @@
-[submodule "public"]
-	path = public
-	url = git@github.com:v3-community/sys.git
-	branch = master
