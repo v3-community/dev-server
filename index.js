@@ -49,10 +49,8 @@ term.on('line', line => {
         break;
 
         case 'help':
-            log(`help
-                - reload: reload all clients connected
-                - stop: will stop the dev-server running (exit also does the same)
-                - help: you are here right now`)
+            log('reload: refresh all connected clients')
+            log('stop: stop the server')
         break;
     }
 
