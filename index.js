@@ -42,7 +42,8 @@ term.on('line', line => {
             emitter.emit('event', { name: 'reload' })
         break;
 
-        case 'stop' && 'exit':
+        case 'exit':
+        case 'stop':
             log('exiting')
             process.exit(0);
         break;
