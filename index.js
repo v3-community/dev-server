@@ -42,9 +42,16 @@ term.on('line', line => {
             emitter.emit('event', { name: 'reload' })
         break;
 
-        case 'stop':
+        case 'stop' && 'exit':
             log('exiting')
             process.exit(0);
+        break;
+
+        case 'help':
+            log(`help
+                - reload: reload all clients connected
+                - stop: will stop the dev-server running (exit also does the same)
+                - help: you are here right now`)
         break;
     }
 
