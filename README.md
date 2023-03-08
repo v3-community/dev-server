@@ -1,3 +1,5 @@
+**Deprecated: use the official tool https://github.com/zo/sys42**
+
 # dev-server
 
 This is the development server for Windows93 v3. Its purpose is to notify Windows93 of file changes automatically for it to decide what to hot-reload.
